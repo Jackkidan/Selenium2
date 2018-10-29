@@ -3,11 +3,7 @@ package steps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class RgsSteps extends CommonSteps {
 
@@ -70,15 +66,16 @@ public class RgsSteps extends CommonSteps {
         WebElement webElementForSelect = driver.findElement(selectStartsCountry);
         Select chooseCountry = new Select(webElementForSelect);
         chooseCountry.selectByVisibleText(startCountry);
+        builder.sendKeys(Keys.TAB).build().perform();
     }
 
     public void inputDateOfTravel(String date) {
-        WebDriverWait wait = new WebDriverWait(driver, 5);
-        wait.pollingEvery(Duration.ofMillis(300))
-                .until(ExpectedConditions.visibilityOfElementLocated(inputTravelDate));
-        WebElement dateElement = findByCss(inputTravelDate);
-        scrollToElement(dateElement);
-        dateElement.sendKeys(date);
+        //WebDriverWait wait = new WebDriverWait(driver, 5);
+        //wait.pollingEvery(Duration.ofMillis(300))
+        //        .until(ExpectedConditions.visibilityOfElementLocated(inputTravelDate));
+        //WebElement dateElement = findByCss(inputTravelDate);
+        //scrollToElement(dateElement);
+        builder.sendKeys(date).build().perform();
     }
 
     public void chooseTravelDuration() {

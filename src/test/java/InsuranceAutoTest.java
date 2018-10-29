@@ -1,9 +1,6 @@
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import steps.RgsSteps;
 
 public class InsuranceAutoTest {
@@ -16,7 +13,7 @@ public class InsuranceAutoTest {
 
     @After
     public void tearDown() {
-        //  user.tearDown();
+          user.tearDown();
     }
 
     @Test
@@ -33,13 +30,13 @@ public class InsuranceAutoTest {
         user.inputNameAndLastname("IVAN", "IVANOV", "12121985");
         user.setCheckLeisure();
         user.submitLeisureRequest();
-        //user.checkComplitedRequest(
-        //        "Многократные поездки в течение года",
-        //"(количество дней суммарно: 90)",
-        //        "Шенген",
-        //        "12.12.1985",
-        //        "IVAN IVANOV",
-        //        "(включая активный отдых)");
+        user.checkComplitedRequest(
+                "Многократные поездки в течение года",
+        "(количество дней суммарно: 90)",
+                "Шенген",
+                "12.12.1985",
+                "IVAN IVANOV",
+                "(включая активный отдых)");
 
     }
 }
